@@ -1,15 +1,17 @@
 import { neon } from '@neondatabase/serverless';
+import { DATABASE_URL } from '@/app/definitions';
+//**********************************************************************
+const tableName = 'comments2';//Mdf
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 export default async function Page(){
   //======================================================================
   async function create(formData){
     'use server';
-    const DATABASE_URL="postgresql://neondb_owner:cTQfV1CaR6AL@ep-icy-water-a8x9ec5v.eastus2.azure.neon.tech/neondb?sslmode=require";
     const sql = neon(DATABASE_URL);
-    //const sql = neon(process.env.DATABASE_URL);
-    await sql`CREATE TABLE IF NOT EXISTS comments (comment TEXT)`;
+    await sql(`CREATE TABLE IF NOT EXISTS ${tableName} (id serial, comment TEXT)`, []);
     const comment = formData.get("comment");
-    await sql("INSERT INTO comments (comment) VALUES ($1)", [comment]);
+    await sql(`INSERT INTO ${tableName} (id, comment) VALUES (nextval(\'comments2_id_seq\'), $1)`, [comment]);
+    //await sql('INSERT INTO comments (comment) VALUES ($1)', [comment]);
   }
   //======================================================================
   return (
@@ -17,7 +19,7 @@ export default async function Page(){
         <p>
         ● <a href='/'>Top-Page</a>
         </p>
-        <h2>Add Comment：</h2>
+        <h2>Add Comment to {tableName}：</h2>
         <form action={create}>
           <input type='text' placeholder='Write a comment' name='comment' />
           <button type='submit'>Submit</button>
