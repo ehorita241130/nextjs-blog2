@@ -1,26 +1,25 @@
-import Image from "next/image";
-//import styles from "./page.module.css";
 import { neon } from '@neondatabase/serverless';
 import { DATABASE_URL } from '@/app/definitions';
+import { trcLev } from '@/app/definitions';
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-export const dynamic='force-dynamic';//Added on 2025_1_18.
+const tableName = 'auth_pap_rel';//Mdf
+//const trcLev = 2;
 //**********************************************************************
-const tableName = 'comments2';//Mdf
-//**********************************************************************
-async function getData(){
+export default async function Page(context){
+  //======================================================================
+  const params = await context.params;//New
+  const authorid = params.authorid;
   const sql = neon(DATABASE_URL);
-  const response = await sql(`SELECT * from ${tableName}`, []);//Added on 2025_1_18.
-  return response;
-}
-//**********************************************************************
-export default async function Page(){
-  const data = await getData();
-  const lgt = data.length;
+  const data = await sql(`SELECT * from ${tableName} where authorid=$1`, [authorid]);//Added on 2025_1_18.
+  if( trcLev >= 2 ){//For tracing.
+    console.log('-- data');
+    console.dir(data);
+  }
   //======================================================================
   function mapper1(item, k){
     return (
       <li key={k}>
-        #{item.id}：{item.comment}
+        #{item.authorid}：{item.authorrole}, {item.paperid}
       </li>
     );
   }
@@ -30,13 +29,11 @@ export default async function Page(){
       <p>
       ● <a href='/'>Top-Page</a>
       </p>
-      <h2>Comments in {tableName}：</h2>
-      <p>count={lgt}</p>
-      <h3>Records：</h3>
+      <h2>Records：</h2>
       <ul>
         {data.map(mapper1)}
       </ul>
     </>
-  );
+  )
 }
 //**********************************************************************

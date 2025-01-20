@@ -3,3 +3,5 @@ export const DATABASE_URL=
 "@ep-icy-water-a8x9ec5v.eastus2.azure.neon.tech/"+
 "neondb?sslmode=require";
 //**********************************************************************
+export const trcLev = 1;
+//**********************************************************************
