@@ -10,10 +10,10 @@ export default function Page(){
   const router = useRouter();
   //======================================================================
   async function handleSubmit(formData){
-    const authorid = formData.get('authorid');
-    console.log(`-- authorid=${authorid}`);
+    const id = formData.get('id');
+    console.log(`-- id=${id}`);
     try{
-      let url1 = `/ask/auth_pap_rel/show1/${authorid}`;
+      let url1 = `/ask/paper/show1B/${id}`;
       router.push(url1);
       router.refresh();
     }
@@ -28,9 +28,9 @@ export default function Page(){
       <p>
       ● <a href='/'>Top-Page</a>
       </p>
-      <h3>Show author-paper-paring(s) by AUTHOR-ID：</h3>
+      <h2>Show paper by ID：</h2>
       <form action={handleSubmit}>
-        <input type='text' placeholder='Specify AUTHOR ID' name='authorid'/>
+        <input type='text' placeholder='Specify ID' name='id'/>
         <button type='submit'>Submit</button>
       </form>
     </>

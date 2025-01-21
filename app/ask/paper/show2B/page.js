@@ -2,19 +2,20 @@
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 import { neon } from '@neondatabase/serverless';
 import { DATABASE_URL } from '@/app/definitions';
-import { trcLev } from '@/app/definitions';
 //
 import { useRouter } from 'next/navigation' 
+//**********************************************************************
+const tableName = 'paper';//Mdf
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 export default function Page(){
   const router = useRouter();
   //======================================================================
   async function handleSubmit(formData){
-    const authorid = formData.get('authorid');
-    console.log(`-- authorid=${authorid}`);
+    const title = formData.get('title');
+    console.log('-- title=', {title});
     try{
-      let url1 = `/ask/auth_pap_rel/show1/${authorid}`;
-      router.push(url1);
+      let url2 = `/ask/paper/show2B/${title}`;
+      router.push(url2);
       router.refresh();
     }
     catch(err){
@@ -24,16 +25,16 @@ export default function Page(){
   }
   //======================================================================
   return (
-    <>
-      <p>
-      ● <a href='/'>Top-Page</a>
-      </p>
-      <h3>Show author-paper-paring(s) by AUTHOR-ID：</h3>
-      <form action={handleSubmit}>
-        <input type='text' placeholder='Specify AUTHOR ID' name='authorid'/>
-        <button type='submit'>Submit</button>
-      </form>
-    </>
+      <>
+        <p>
+        ● <a href='/'>Top-Page</a>
+        </p>
+        <h2>Show authors by NAME：</h2>
+        <form action={handleSubmit}>
+          <input type='text' placeholder='Specify (part of) TITILE' name='title'/>
+          <button type='submit'>Submit</button>
+        </form>
+      </>
   );
 }
 //**********************************************************************

@@ -13,7 +13,7 @@ export default function Page(){
     const authorid = formData.get('authorid');
     console.log(`-- authorid=${authorid}`);
     try{
-      let url1 = `/ask/auth_pap_rel/show1/${authorid}`;
+      let url1 = `/ask/paper/show3/${authorid}`;
       router.push(url1);
       router.refresh();
     }
@@ -28,9 +28,9 @@ export default function Page(){
       <p>
       ● <a href='/'>Top-Page</a>
       </p>
-      <h3>Show author-paper-paring(s) by AUTHOR-ID：</h3>
+      <h3>Show paper(s) by AUTHOR-ID：</h3>
       <form action={handleSubmit}>
-        <input type='text' placeholder='Specify AUTHOR ID' name='authorid'/>
+        <input type='text' placeholder='Specify AUTHOR-ID' name='authorid'/>
         <button type='submit'>Submit</button>
       </form>
     </>

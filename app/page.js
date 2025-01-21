@@ -16,13 +16,48 @@ export default async function Page(){
   //======================================================================
   return (
     <>
-      <center>
-      <h2>DB of Authors and Papers</h2>
-      </center>
-      <p>
+      <h2 align='center'>DB of Authors and Papers</h2>
+      <p align='center'>
        By using Neon with<br/>
       [{data}]
       </p>
+      <hr/>
+      <h3>Links for handling [author]：</h3>
+      <ul>
+        <li>
+          ● <a href='/ask/author/show2'>Show author by ID.</a>
+        </li>
+        <li>
+          ● <a href='/ask/author/show3'>Show author(s) by NAME.</a>
+        </li>
+      </ul>
+      <h3>Links for handling [paper]：</h3>
+      <ul>
+        <li>
+          ● <a href='/ask/paper/show1'>Show paper by ID.</a>
+        </li>
+        <li>
+          ● <a href='/ask/paper/show1B'>Show paper by ID (in details).</a>
+        </li>
+        <li>
+          ● <a href='/ask/paper/show2'>Show paper(s) by TITLE.</a>
+        </li>
+        <li>
+          ● <a href='/ask/paper/show2B'>Show paper(s) by TITLE (in details).</a>
+        </li>
+        <li>
+          ● <a href='/ask/paper/show3'>Show paper(s) by AUTHOR-ID (in details).</a>
+        </li>
+      </ul>
+      <h3>Links for handling [author-paper-relation]：</h3>
+      <ul>
+      <li>
+      ● <a href='/ask/auth_pap_rel/show1'>Show by AUTHOR-ID.</a>
+      </li>
+      <li>
+      ● <a href='/ask/auth_pap_rel/show2'>Show by PAPER-ID.</a>
+      </li>
+      </ul>
       <hr/>
       <h3>Links for handling [{tableName}]：</h3>
       <ul>
@@ -35,30 +70,6 @@ export default async function Page(){
         <li>
           ● <a href='/comments/delete'>Delete comment.</a>
         </li>
-      </ul>
-      <h3>Links for handling [author]：</h3>
-      <ul>
-        <li>
-          ● <a href='/ask/author/show2'>Show author by ID.</a>
-        </li>
-        <li>
-          ● <a href='/ask/author/show3'>Show author by NAME.</a>
-        </li>
-      </ul>
-      <h3>Links for handling [paper]：</h3>
-      <ul>
-        <li>
-          ● <a href='/ask/paper/show1'>Show paper by ID.</a>
-        </li>
-        <li>
-          ● <a href='/ask/paper/show2'>Show paper by TITLE.</a>
-        </li>
-      </ul>
-      <h3>Links for handling [author-paper-relation]：</h3>
-      <ul>
-      <li>
-      ● <a href='/ask/auth_pap_rel/show1'>Show by AUTHOR ID.</a>
-      </li>
       </ul>
     </>
   );
