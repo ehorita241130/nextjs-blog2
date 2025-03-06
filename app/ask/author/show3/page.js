@@ -4,6 +4,7 @@ import { neon } from '@neondatabase/serverless';
 import { DATABASE_URL } from '@/app/definitions';
 //
 import { useRouter } from 'next/navigation' 
+import stl from './page.module.css';//Added
 //**********************************************************************
 const tableName = 'author';//Mdf
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -25,16 +26,17 @@ export default function Page(){
   }
   //======================================================================
   return (
-      <>
-        <p>
+      <div className={stl.main}>
+        <p className={stl.headingP}>
         ● <a href='/'>Top-Page</a>
         </p>
         <h2>Show authors by NAME：</h2>
         <form action={handleSubmit}>
-          <input type='text' placeholder='Specify (part of) NAME' name='name'/>
-          <button type='submit'>Submit</button>
+          <input className={stl.inp1} 
+            type='text' placeholder='Specify (part of) NAME' name='name'/><br/>
+          <button type='submit' className={stl.btn1}>Submit</button>
         </form>
-      </>
+      </div>
   );
 }
 //**********************************************************************

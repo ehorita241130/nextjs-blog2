@@ -1,6 +1,18 @@
+//堀
+//######################################################################
+// File: "page.js".
+// On nepi40 : (*home-common="/cygdrive/g/home2/"):
+// (concat *home-common 
+//   "neon_postgres_241226/013/nextjs-blog2/app/ask/paper/show2B/[title]/"
+//   "page.js")
+// By Horita.
+// On (2025 Mar 5).
+//######################################################################
 import { neon } from '@neondatabase/serverless';
 import { DATABASE_URL } from '@/app/definitions';
 import { trcLev } from '@/app/definitions';
+//
+import stl from './page.module.css';//Added
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 const tableName = 'paper';//Mdf
 //**********************************************************************
@@ -43,25 +55,27 @@ export default async function Page(context){
       await sql(`select * from auth_pap_rel where paperid=${papId}`, []);
     return (
       <li key={k}>
-        #{papId}：{papItem.title}<br/>
-        Source：<br/>
+        <span style={{fontWeight:'bold'}}>#{papId}</span>：{papItem.title}<br/>
+        <span style={{fontWeight:'bold'}}>Source</span>：<br/>
         {papItem.source}<br/>
-        Authors：<br/>
+        <span style={{fontWeight:'bold'}}>Authors</span>：<br/>
         {authPapPairs.map(mapper2)}
+        <hr/>
       </li>
     );
   }
   //======================================================================
   return (
-    <>
-      <p>
+    <div className={stl.main}>
+      <p className={stl.headingP}>
       ● <a href='/'>Top-Page</a>
       </p>
       <h1>Records：</h1>
       <ul>
+        <hr/>
         {papData.map(mapper1)}
       </ul>
-    </>
+    </div>
   )
 }
 //**********************************************************************

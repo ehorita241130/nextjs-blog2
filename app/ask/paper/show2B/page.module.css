@@ -14,22 +14,20 @@ On (2025 Mar 5).
 }
 /*======================================================================*/
 .headingP{
-  font-size:18px;
-  color:#000;
-  text-align:center;
+  font-size:24px;
+  color:blue;
 }
 /*======================================================================*/
 .h2A{
   margin-top:10px;
-  text-align:center;
 }
 /*======================================================================*/
-.secHeading{
+.form1{
   border:#000000 1px solid; 
   padding:20px; 
   font-size:18px;
-  background-color:#def;
-  width:100%;
+  background-color:#f8f8f8;
+  width:50rem;
 }
 /*======================================================================*/
 .inp1{
@@ -39,7 +37,7 @@ On (2025 Mar 5).
 }
 /*======================================================================*/
 .btn1{
-  margin-top:10px;
+	margin-top:10px;
   font-size:18px;
   font-weight:500;
   padding:10px 30px;

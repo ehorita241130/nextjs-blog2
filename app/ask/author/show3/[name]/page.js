@@ -1,6 +1,8 @@
 import { neon } from '@neondatabase/serverless';
 import { DATABASE_URL } from '@/app/definitions';
 import { trcLev } from '@/app/definitions';
+//
+import stl from './page.module.css';//Added
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 const tableName = 'author';//Mdf
 //const trcLev = 2;
@@ -30,22 +32,22 @@ export default async function Page(context){
   function mapper1(item, k){
     return (
       <li key={k}>
-        #{item.id}：{item.name}<br/>
-        {item.source}
+        <span style={{fontWeight:'bold'}}>#{item.id}</span>：{item.name}
+        {/*{item.source}*/}
       </li>
     );
   }
   //======================================================================
   return (
-    <>
-      <p>
+    <div className={stl.main}>
+      <p className={stl.headingP}>
       ● <a href='/'>Top-Page</a>
       </p>
-      <h1>Records：</h1>
+      <h2 className={stl.h2A}>Records：</h2>
       <ul>
         {data.map(mapper1)}
       </ul>
-    </>
+    </div>
   )
 }
 //**********************************************************************
