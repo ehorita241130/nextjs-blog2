@@ -1,0 +1,52 @@
+<!--堀
+######################################################################
+File: "test03.html".
+On nepi40 : (*home-common="/cygdrive/g/home2/"):
+(concat *home-common 
+  "neon_postgres_241226/013/nextjs-blog2/public/"
+  "test03.html")
+By Horita.
+On (2025 Mar 8).
+######################################################################
+-->
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Test3 of crypto-js</title>
+<!--**********************************************************************-->
+<script 
+  src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script 
+  src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js'></script>
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->  
+<script type='text/javascript'>
+function crypto(){//<1. Testing hashing.
+  let input = 'abc123';
+  let hash2 = '';
+  //v CryptoJS is defined in crypto-js.min.js.
+  //v Hashing by SHA256.
+  hash2 = CryptoJS.SHA256(input);
+  let hash2B = hash2.toString();
+  console.log('Source:' + input);
+  console.log('hash2B:' + hash2B);
+}//1>
+</script>
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> 
+</head>
+<body>
+  <h2>Test3 of crypto-js</h2>
+  <button onclick='crypto();'>Hashing</button>
+</body>
+</html>
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> 
+<!--
+Source:abc123
+-- test03.html:28:11
+hash2B:6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090
+-- test03.html:29:11
+echo -n 'abc123' | sha256sum
+=>
+6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090 *-
+-->
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> 

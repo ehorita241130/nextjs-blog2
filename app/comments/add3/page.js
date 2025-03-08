@@ -29,7 +29,7 @@ export default async function Page(){
   async function addEntry(formData){
     'use server';
     const sql = neon(DATABASE_URL);
-    await sql(`CREATE TABLE IF NOT EXISTS ${tableName} (id serial, comment TEXT)`, []);
+    //await sql(`CREATE TABLE IF NOT EXISTS ${tableName} (id serial, comment TEXT)`, []);
     const name = formData.get("name");
     const email = formData.get("email");
     const message = formData.get("message");

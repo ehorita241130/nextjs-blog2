@@ -1,3 +1,15 @@
+/*堀
+######################################################################
+File: "page.js".
+On nepi40 : (*home-common="/cygdrive/g/home2/"):
+(concat *home-common 
+  "neon_postgres_241226/013/nextjs-blog2/app/"
+  "page.js")
+By Horita.
+On (2025 Mar 8).
+######################################################################
+server-component
+*/
 import Image from "next/image";
 import styles from "./page.module.css";
 import { neon } from '@neondatabase/serverless';
@@ -39,19 +51,19 @@ export default async function Page(){
       <h3>Links for handling [paper]：</h3>
       <ul>
         <li>
-          ● <a href='/ask/paper/show1B'>Show paper by ID (in details).</a>
+          ● <a href='/ask/paper/show1B'>Show paper by ID.</a>
         </li>
         <li>
-          ● <a href='/ask/paper/show2B'>Show paper(s) by TITLE (in details).</a>
+          ● <a href='/ask/paper/show2B'>Show paper(s) by TITLE.</a>
         </li>
       </ul>
       <h3>Links for handling [author-paper-relation]：</h3>
       <ul>
       <li>
-        ● <a href='/ask/auth_pap_rel/show1B'>Show paper(s) by AUTHOR-ID (in details).</a>
+        ● <a href='/ask/auth_pap_rel/show1B'>Show paper(s) by AUTHOR-ID.</a>
       </li>
       <li>
-        ● <a href='/ask/auth_pap_rel/show2B'>Show author(s) by PAPER-ID (in details).</a>
+        ● <a href='/ask/auth_pap_rel/show2B'>Show author(s) by PAPER-ID.</a>
       </li>
       </ul>
       <hr/>
@@ -61,10 +73,12 @@ export default async function Page(){
           ● <a href='/comments/add3'>Add comment.</a>
         </li>
         <li>
-          ● <a href='/comments/all3'>Show all comment(s).</a>
+          ● <a href='/comments/all3'>Show comment(s).</a>
+      &nbsp;&nbsp;<span style={{color:'blue'}}>[Administrator only]</span>
         </li>
         <li>
           ● <a href='/comments/delete3'>Delete comment.</a>
+      &nbsp;&nbsp;<span style={{color:'blue'}}>[Administrator only]</span>
         </li>
       </ul>
     </div>

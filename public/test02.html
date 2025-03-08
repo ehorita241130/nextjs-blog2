@@ -1,0 +1,52 @@
+<!--堀
+######################################################################
+File: "test02.html".
+On nepi40 : (*home-common="/cygdrive/g/home2/"):
+(concat *home-common 
+  "js/crypto_js/test_pages/"
+  "test02.html")
+By Horita.
+On (2025 Mar 7).
+######################################################################
+-->
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Test2 of crypto-js</title>
+<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js'></script>
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->  
+<script type='text/javascript'>
+//暗号・復号テスト
+function crypto() {
+  let src = '12345ABCDE';
+  let des = '';
+  //暗号化キー:'testkey'を用いて暗号化
+  des = CryptoJS.AES.encrypt(src, 'testkey');
+  console.log('Source :' + src);
+  console.log('Crypto :' + des);
+  //暗号化キー:'testkey'を用いて復号化
+  let decrypted = CryptoJS.AES.decrypt(des, 'testkey');
+  console.log('Decrypt:' + decrypted);
+  let decrypt = decrypted.toString(CryptoJS.enc.Utf8);
+  console.log('utf8     :' + decrypt);
+}
+</script>
+<!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--> 
+</head>
+<body>
+  <h2>Test2 of crypto-js</h2>
+  <button onclick='crypto();'>crypto</button>
+</body>
+</html>
+<!--
+Source :12345ABCDE 
+-- test02.html:27:11
+Crypto :U2FsdGVkX1/QgYIwPfcs06C401E20ZizEp8sE3riPMg= 
+-- test02.html:28:11
+Decrypt:31323334354142434445 
+-- test02.html:31:11
+utf8     :12345ABCDE 
+-- test02.html:33:11
+-->

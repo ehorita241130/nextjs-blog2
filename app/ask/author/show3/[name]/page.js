@@ -1,3 +1,13 @@
+//堀
+//######################################################################
+// File: "page.js".
+// On nepi40 : (*home-common="/cygdrive/g/home2/"):
+// (concat *home-common 
+//   "neon_postgres_241226/013/nextjs-blog2/app/ask/author/show3/[name]/"
+//   "page.js")
+// By Horita.
+// On (2025 Mar 7).
+//######################################################################
 import { neon } from '@neondatabase/serverless';
 import { DATABASE_URL } from '@/app/definitions';
 import { trcLev } from '@/app/definitions';
